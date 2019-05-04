@@ -19,9 +19,10 @@ public abstract class DaoSupport {
         ResultSet rs = null;
         try {
             //1.加载驱动
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             //2.获取连接
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/orm_db", "root", "123456");
+           // con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/orm_db", "root", "123456");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/orm_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC", "root", "123456");
             //3.获取语句集
             pstm = con.prepareStatement(parseSql(condition));
             //4.得到结果集
